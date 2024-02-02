@@ -1,0 +1,44 @@
+<%- include('Partials/header') -%>
+<div class="about-grid">
+  <div class="image-container">
+    <img src="/images/2019-2-Training.jpg" alt="person-img" />
+
+    <div class="location-container">
+      <div class="text-center">
+        <h2>Location</h2>
+      </div>
+      <div class="location-info">
+        <i class="fas fa-map-marker-alt"></i>
+        <p>Narsinghpur - 487001 | Madhya Pradesh | India</p>
+      </div>
+      <div class="location-info">
+        <i class="fas fa-phone"></i>
+        <p>+91 9106766593</p>
+      </div>
+
+      <div class="location-info">
+        <i class="fas fa-envelope"></i>
+        <p>yogeshvish2010@gmail.com</p>
+      </div>
+    </div>
+  </div>
+  <% trainings.forEach(training => { %>
+  <div class="about-container">
+    <div class="text-center">
+      <h2><%= training.name %></h2>
+    </div>
+    <p><%= training.description %></p>
+    <!-- Typo here: should be 'description' -->
+    <p><%= training.duration %></p>
+    <p>
+      <%= training.date.toLocaleString('en-US', { weekday: 'long', year:
+      'numeric', month: 'long', day: 'numeric' }) %>
+    </p>
+    <p>Price: <%= training.price %></p>
+    <br />
+    <!-- Add other fields as needed -->
+    <a href="tel:+919106766593" class="primary-button">Book Seat</a>
+  </div>
+  <% }); %>
+</div>
+<%- include('Partials/footer') -%>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Success</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/media-queries.css" />
+  </head>
+  <body>
+    <!-- Include header -->
+    <%-include('Partials/header') %>
+
+    <!-- Content Section -->
+    <div style="text-align: center; margin-top: 20px">
+      <h1>Registration Successful, <%= name %>!</h1>
+      <p>Welcome to our platform. You are now a registered user.</p>
+      <div>
+        <!-- Display user's name -->
+        <p>Hello, <%= name %>!</p>
+        <!-- Button to redirect to the login page -->
+        <a href="/login">
+          <button class="primary-button">Login</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Include footer -->
+    <%- include('Partials/footer') %>
+  </body>
+</html>

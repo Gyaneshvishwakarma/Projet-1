@@ -1,0 +1,75 @@
+<!-- views/userPanel.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Panel</title>
+    <!-- <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #333;
+        color: #fff;
+      }
+    </style> -->
+  </head>
+  <body>
+    <%- include('AdminHeader') %>
+    <div class="main-panel">
+      <!-- <div class="content">
+        <div class="container-fluid"> -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Register Login</div>
+      </div>
+      <div class="card-body">
+        <table class="table table-head-bg-primary">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <!-- Add more columns based on your user table -->
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <!-- Add more columns based on your user table -->
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    </div>
+  </div>
+  </body>
+</html>

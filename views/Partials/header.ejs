@@ -1,0 +1,106 @@
+<!-- header.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Yogesh Vishwakarma</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media-queries.css" />
+  </head>
+  <body>
+    <div class="top-banner">
+      <div class="container">
+        <div class="small-bold-text banner-text">
+          🥳 New 250 Formula E-Book: Contact And Get The Book
+        </div>
+      </div>
+    </div>
+    <nav>
+      <ul class="sidebar">
+        <li onclick="hideSidebar()">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              /></svg
+          ></a>
+        </li>
+        <li><a href="home">home</a></li>
+        <li><a href="gallery">Gallery </a></li>
+        <li><a href="about">about</a></li>
+        <li><a href="contact">contact</a></li>
+        <li><a href="login">login</a></li>
+      </ul>
+      <!-- code for navbar in desktop mode -->
+      <ul>
+        <li>
+          <a href="home"><img src="./images/logo-nav.png" alt="" /></a>
+        </li>
+        <li><a href="home" class="nav-links">Home</a></li>
+        <li><a href="gallery" class="nav-links">Gallery</a></li>
+        <li><a href="about" class="nav-links">About</a></li>
+        <li><a href="contact" class="nav-links">Contact</a></li>
+        <% if (user) { %>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">
+            <img
+              class="user-logo"
+              src="/images/user-solid.svg"
+              alt="User Logo"
+            />
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="12"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path d="M7 10l5 5 5-5z" />
+            </svg>
+          </a>
+          <div class="dropdown-content">
+            <a><%= user.name %></a>
+            <!-- Add additional dropdown menu items if needed -->
+            <a href="/logout">Log Out</a>
+          </div>
+        </li>
+        <% } else { %>
+        <li><a href="login" class="secondary-button">Login</a></li>
+        <% } %>
+        <li class="menu-button" onclick="showSidebar()">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+            >
+              <path
+                d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+              /></svg
+          ></a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+  <script>
+    function showSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      sidebar.style.display = "flex";
+    }
+    function hideSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      sidebar.style.display = "none";
+    }
+  </script>
+  <script src="./js/script.js"></script>
+  <script
+    src="https://kit.fontawesome.com/c1fc3d2826.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</html>

@@ -1,0 +1,56 @@
+<!-- views/books.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulation Book</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/media-queries.css">
+</head>
+<body>
+    <%- include('Partials/header') %>
+    <div class="about-grid">
+        <!-- Iterate through books and display information -->
+        <% books.forEach(book => { %>
+            <div class="image-container book">
+                <img src="/images/book cover.png" alt="book-cover">
+                <div class="location-container">
+                    <div class="text-center">
+                        <h2>Location</h2>
+                    </div>
+                    <div class="location-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Narsinghpur - 487001 | Madhya Pradesh | India</p>
+                    </div>
+                    <div class="location-info">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 9106766593</p>
+                    </div>
+                    <div class="location-info">  
+                        <i class="fas fa-envelope"></i>
+                        <p>yogeshvish2010@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+                <div class="about-container">
+                    <div class="text-center">
+                        <h2><%= book.name %></h2>
+                    </div>
+                    <br>
+                    <p><%= book.description %></p>
+                    <p><strong>Price:</strong> <%= book.price %></p>
+                    <a href="https://buy.stripe.com/test_5kA3dy6q7eBxdvWbII" class="primary-button get-started-btn">Purchase</a>
+                    <a href="https://drive.google.com/file/d/10VPAhpkIK7VUccPupF_ERQwXODdA1nBR/view?usp=sharing" class="primary-button get-started-btn">View Sample Book</a>
+                </div>
+            </div>
+        <% }); %>
+         
+    </div>
+    <%- include('Partials/footer') %>
+    <script src="https://kit.fontawesome.com/c1fc3d2826.js" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>
