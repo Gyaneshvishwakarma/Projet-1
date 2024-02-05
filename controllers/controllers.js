@@ -21,6 +21,10 @@ export const renderContact = (req, res) => {
     res.render('contact', { user: req.session.user });
 };
 
+export const renderUserProfile = (req, res) => {
+    res.render('UserProfile', { user: req.session.user });
+};
+
 export const renderGallery = (req, res) => {
     res.render('gallery', { user: req.session.user });
 };

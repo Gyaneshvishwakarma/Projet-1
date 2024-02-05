@@ -1,9 +1,12 @@
 // routes.js
 import express from 'express';
 import * as controllers from "../controllers/controllers.js";
-import conn from "../config/db.js"
+import conn from "../config/db.js";
+import multer from 'multer';
 
+// const app = express();
 const router = express.Router();
+// app.use(express.static("public"));
 
 const isAdmin = (req, res, next) => {
     // Assuming you have a session or token-based authentication
@@ -18,6 +21,19 @@ const isAdmin = (req, res, next) => {
     }
 };
 
+// multer code
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'public/booksimg'); // specify your upload directory for books
+    },
+    filename: (req, file, cb) => {
+      cb(null, Date.now() + '-' + file.originalname);
+    },
+});
+
+const upload = multer({ storage: storage });
+
 router.get('/header', controllers.renderHeader);
 router.get('/footer', controllers.renderFooter);
 router.get('/home', controllers.renderHome);
@@ -26,6 +42,7 @@ router.get('/books', controllers.renderBooks);
 router.get('/formulationbook',controllers.renderFomulationBook);
 router.get('/trainingDetail', controllers.renderTrainingDetail);
 router.get('/contact', controllers.renderContact);
+router.get('/userProfile', controllers.renderUserProfile);
 router.get('/gallery', controllers.renderGallery);
 router.get('/training', controllers.renderTraining);
 router.get('/login', controllers.renderLogin);
@@ -75,20 +92,24 @@ router.post('/booksAdmin/delete/:id',isAdmin, (req, res) => {
     });
 });
 
-router.post('/booksAdmin/update/:id',isAdmin, (req, res) => {
+router.post('/booksAdmin/update/:id', upload.single('bookImage'), isAdmin, (req, res) => {
     const bookId = req.params.id;
     const { name, description, price } = req.body;
-    const query = 'UPDATE books SET name=?, description=?, price=? WHERE id=?';
-    conn.query(query, [name, description, price, bookId], (err) => {
+    const imgFilename = req.file.filename;
+
+    const query = 'UPDATE books SET name=?, description=?, price=?, imgFilename=? WHERE id=?';
+    conn.query(query, [name, description, price, imgFilename, bookId], (err) => {
         if (err) throw err;
         res.redirect('/booksAdmin');
     });
 });
 
-router.post('/books', (req, res) => {
+
+router.post('/books', upload.single('bookImage'),(req, res) => {
     const { name, description, price } = req.body;
-    const query = 'INSERT INTO books (name, description, price) VALUES (?, ?, ?)';
-    conn.query(query, [name, description, price], (err, results) => {
+    const imgFilename = req.file.filename;
+    const query = 'INSERT INTO books (name, description, price, imgFilename) VALUES (?, ?, ?, ?)';
+    conn.query(query, [name, description, price, imgFilename], (err, results) => {
         if (err) throw err;
         res.redirect('/booksAdmin');
     });

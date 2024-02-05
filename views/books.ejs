@@ -11,28 +11,13 @@
 </head>
 <body>
     <%- include('Partials/header') %>
+    <% books.forEach(book => { %>
     <div class="about-grid">
+
         <!-- Iterate through books and display information -->
-        <% books.forEach(book => { %>
+       
             <div class="image-container book">
-                <img src="/images/book cover.png" alt="book-cover">
-                <div class="location-container">
-                    <div class="text-center">
-                        <h2>Location</h2>
-                    </div>
-                    <div class="location-info">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Narsinghpur - 487001 | Madhya Pradesh | India</p>
-                    </div>
-                    <div class="location-info">
-                        <i class="fas fa-phone"></i>
-                        <p>+91 9106766593</p>
-                    </div>
-                    <div class="location-info">  
-                        <i class="fas fa-envelope"></i>
-                        <p>yogeshvish2010@gmail.com</p>
-                    </div>
-                </div>
+                <img src="/booksimg/<%=book.imgFilename%>" alt="<%= book.name %> Image">
             </div>
                 <div class="about-container">
                     <div class="text-center">

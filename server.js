@@ -82,6 +82,7 @@ app.post("/login", function (req, res) {
 
 
 app.post('/register', function (req, res) {
+   
     var name = req.body.name;
     var email = req.body.email;
     var password = req.body.password;
