@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/media-queries.css" />
-    <title>Book PDF</title>
+    <title>Payment Successful</title>
   </head>
+  <%- include('Partials/header') %>
   <body>
-    <%- include('Partials/header') %>
-    <h1>Book PDF Page</h1>
+    <h1>Payment Successful!</h1>
+    <br />
+    <p>Your payment was successful. Thank you for your purchase!</p>
+    <br />
     <p>Click the link below to view/download the PDF:</p>
     <br />
-    <a href="book.pdf" download="book.pdf">Download</a>
+    <a href="book.pdf" download="book.pdf" class="primary-button">Download</a>
     <%- include('Partials/footer') %>
   </body>
 </html>

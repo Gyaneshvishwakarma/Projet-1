@@ -61,32 +61,11 @@
 
       <form class="profile-form" action="/update" method="post">
         <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" value="<%= user.name %>" />
+          <label for="name">Name: <%= user.name %></label>
         </div>
 
         <div class="form-group">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value="<%= user.email %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" />
-        </div>
-        <div class="form-group">
-          <label for="email">New Password:</label>
-          <input type="password" id="NewPassword" name="NewPassword" />
-        </div>
-
-        <!-- Add more input fields as needed -->
-
-        <div class="form-group">
-          <button type="submit">Update Profile</button>
+          <label for="email">Email: <%= user.email %></label>
         </div>
       </form>
     </div>

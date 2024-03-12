@@ -17,7 +17,20 @@ const isAdmin = (req, res, next) => {
         next();
     } else {
         // User is not authorized, redirect to login or show an unauthorized message
-        res.status(403).send('Access forbidden');
+        res.status(403).send('Access forbidden, Please Login With Admin Id Password');
+    }
+};
+
+const isUser = (req, res, next) => {
+    // Assuming you have a session or token-based authentication
+    const user = req.session.user; // Replace with your authentication method
+
+    if (user && user.role === 'user') {
+        // User is an admin, proceed to the next middleware or route handler
+        next();
+    } else {
+        // User is not authorized, redirect to login or show an unauthorized message
+        res.redirect('login')
     }
 };
 
@@ -38,8 +51,9 @@ router.get('/header', controllers.renderHeader);
 router.get('/footer', controllers.renderFooter);
 router.get('/home', controllers.renderHome);
 router.get('/about', controllers.renderAbout);
-router.get('/books', controllers.renderBooks);
+router.get('/books', isUser,controllers.renderBooks);
 router.get('/formulationbook',controllers.renderFomulationBook);
+router.get('/bookingData',controllers.renderBookingData);
 router.get('/trainingDetail', controllers.renderTrainingDetail);
 router.get('/contact', controllers.renderContact);
 router.get('/userProfile', controllers.renderUserProfile);
@@ -48,13 +62,15 @@ router.get('/training', controllers.renderTraining);
 router.get('/login', controllers.renderLogin);
 router.get('/register', controllers.renderRegister);
 router.get('/registrationSuccess', controllers.renderRegisterSuccefully);
+router.get('/booking', controllers.renderBookingForm);
+router.get('/invoice', controllers.renderInvoice);
 // Use the modified renderAdminHeader function
 router.get("/AdminHeader", isAdmin,
     controllers.renderAdminHeader
 );
 
 
-router.get('/AdminDashboard',isAdmin, controllers.renderAdminDashboard);
+router.get('/AdminDashboard', controllers.renderAdminDashboard);
 
 router.get('/training', (req, res) => {
     conn.query('SELECT * FROM training', (error, results) => {

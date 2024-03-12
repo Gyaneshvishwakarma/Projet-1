@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Seat Bookings</title>
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyFvqFqEmp13IbbVcG5CrNG5Q7g6j"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <%- include('AdminHeader') %>
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <h4 class="page-title">Training Seat Booking </h4>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+                <table class="table table-head-bg-primary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Contact</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Seat No.</th>
+                      <th scope="col">Training Mode</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% bookings.forEach(booking => { %>
+                    <tr>
+                      <td><%= booking.name %></td>
+                      <td><%= booking.email %></td>
+                      <td><%= booking.contact %></td>
+                      <td><%= booking.address %></td>
+                      <td><%= booking.seat_no %></td>
+                      <td><%= booking.training_mode %></td>
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-oR2CjoNjaLHjveXBS7HqAbzHP4LJuS7pV4RzoZwe2a

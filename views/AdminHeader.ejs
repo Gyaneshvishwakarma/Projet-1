@@ -26,12 +26,12 @@
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">	
 						<li class="nav-item dropdown">
 							<% if (user) { %>
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"><span ><%= user.name %></span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <span ><%= user.name %></span></span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
 										
-										<div class="u-img"><img src="assets/img/profile.jpg" alt="user" ></div>
+										<!-- <div class="u-img"><img src="assets/img/profile.jpg" alt="user" ></div> -->
 										<div class="u-text">
 											<h4><%= user.name %></h4>
 											<p class="text-muted"><%= user.email %></p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
@@ -44,7 +44,7 @@
 									<% if (user) { %>
 									<a class="dropdown-item" href="userProfile"><i class="ti-user"></i> My Profile</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#"><i class="ti-settings"></i> Account Setting</a>
+									<a class="dropdown-item" href="home"><i class="ti-settings"></i> Home </a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
 									<% } else { %>
@@ -84,6 +84,12 @@
 							<a href="trainingAdmin">
 								<i class="la la-calendar"></i>
 								<p>Training</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="bookinglist">
+								<i class="la la-book"></i>
+								<p>Training Seat</p>
 							</a>
 						</li>
 					</ul>

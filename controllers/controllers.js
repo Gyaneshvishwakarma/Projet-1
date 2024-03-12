@@ -61,6 +61,12 @@ export const renderFomulationBook = (req, res) => {
     res.render('formulationbook', { user: req.session.user });
 };
 
+const CurrentDate = new Date();
+
+export const renderInvoice = (req, res) => {
+    res.render('invoice', { user: req.session.user ,CurrentDate });
+};
+
 export const renderBooks = (req, res, books, selectedBook) => {
     res.render('books', { books, selectedBook,user: req.session.user });
 };
@@ -74,9 +80,20 @@ export const renderAdminHeader = (req, res) => {
     res.render('AdminHeader', { user: req.session.user });
 };
 
-export const renderAdminDashboard = (req, res) => {
-    res.render('AdminDashboard', { user: req.session.user });
+export const renderAdminDashboard = (req, res, selectedTraining) => {
+    res.render('AdminDashboard', { selectedTraining , user: req.session.user });
 };
+
+export const renderBookingData = (req, res) => {
+    res.render('booking_data', { user: req.session.user });
+};
+
+
+
+export const renderBookingForm = (req, res) => {
+    res.render('booking_form', { user: req.session.user });
+};
+
 
 export const renderForbidden = (req, res) => {
     res.status(403).send("Forbidden: You do not have permission to access this page");

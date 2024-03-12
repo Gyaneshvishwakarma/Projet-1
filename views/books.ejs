@@ -26,8 +26,10 @@
                     <br>
                     <p><%= book.description %></p>
                     <p><strong>Price:</strong> <%= book.price %></p>
-                    <a href="https://buy.stripe.com/test_5kA3dy6q7eBxdvWbII" class="primary-button get-started-btn">Purchase</a>
+                    <!-- <form action="/create-checkout-session" method="POST"> -->
+                    <a  href="invoice" class="primary-button get-started-btn">Purchase</a>
                     <a href="https://drive.google.com/file/d/10VPAhpkIK7VUccPupF_ERQwXODdA1nBR/view?usp=sharing" class="primary-button get-started-btn">View Sample Book</a>
+                <!-- </form> -->
                 </div>
             </div>
         <% }); %>
